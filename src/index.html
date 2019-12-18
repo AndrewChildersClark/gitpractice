@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Augmented Reality</title>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/ar.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+    <!--
+    <script>
+      AFRAME.registerComponent('example-listener', {
+        init: function () { 
+          window.addEventListener('click', function (event) {
+            document.querySelector('#example').emit('exampleAnimation');
+          });
+        }
+      });
+    </script>
+    -->
+    
+    <script>
+      AFRAME.registerComponent('example-listener', {
+        init: function () {
+            const exampleEntity = document.querySelector("#example");
+            //problem occurs with exampleEntity being clicked vs window
+            exampleEntity.addEventListener('click', function (event) {
+                document.querySelector('#example').emit('exampleAnimation');
+            });
+        }
+      });
+    </script>
+    
+
+    <!--<script src="./components/hiro/events.js"></script> -->
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script src="/bundle.js"></script>
+  </body>
+</html>
